@@ -61,12 +61,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
-
         ],
       ),
-      // bottomNavigationBar: ,
-      // floatingActionButton: ,
-      // body: ,
     );
   }
 }

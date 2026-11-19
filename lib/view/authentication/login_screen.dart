@@ -54,6 +54,21 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ],
           ),
+
+          Row(
+            children: [
+              Expanded(
+                child: Divider(color: Colors.grey, thickness: 1, height: 1),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0, right: 10),
+                child: Text("OR"),
+              ),
+              Expanded(
+                child: Divider(color: Colors.grey, thickness: 1, height: 1),
+              ),
+            ],
+          ),
         ],
       ),
       // bottomNavigationBar: ,

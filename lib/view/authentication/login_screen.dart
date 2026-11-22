@@ -1,3 +1,4 @@
+import 'package:ai39a/constants/app_images.dart';
 import 'package:ai39a/view/authentication/widgets/social_media_card.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +10,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  bool visibility = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(backgroundColor: Colors.transparent),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
             child: Text(
@@ -43,14 +51,11 @@ class _LoginScreenState extends State<LoginScreen> {
               Expanded(
                 child: SocialMediaCard(
                   label: "Facebook",
-                  imagePath: "assets/images/fb.png",
+                  imagePath: facebookIcon,
                 ),
               ),
               Expanded(
-                child: SocialMediaCard(
-                  imagePath: "assets/images/google (2).png",
-                  label: "Google",
-                ),
+                child: SocialMediaCard(imagePath: googleIcon, label: "Google"),
               ),
             ],
           ),
@@ -69,8 +74,80 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ],
           ),
+
+          TextFormField(
+            controller: emailController,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              // label: Text("Email"),
+              hint: Text("abc@gmail.com"),
+              filled: true,
+              fillColor: Colors.grey.shade100,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue),
+              ),
+
+              // errorBorder: ,
+              // disabledBorder: ,
+            ),
+          ),
+
+          SizedBox(height: 20),
+          TextFormField(
+            controller: passwordController,
+            keyboardType: TextInputType.text,
+            obscureText: visibility,
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    visibility = !visibility;
+                  });
+                },
+                icon: Icon(
+                  visibility == true ? Icons.visibility : Icons.visibility_off,
+                ),
+              ),
+              // prefixIcon: Icon(Icons.password),
+              // label: Text("Email"),
+              hint: Text("*******"),
+              filled: true,
+              fillColor: Colors.grey.shade100,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue),
+              ),
+
+              // errorBorder: ,
+              // disabledBorder: ,
+            ),
+          ),
+          SizedBox(height: 20),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [Text("Forget Password")],
+          ),
+
+          SizedBox(
+            height: 50,
+            width: double.infinity,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white
+              ),
+                onPressed: () {}, child: Text("Log In")),
+          ),
         ],
       ),
+
       // bottomNavigationBar: ,
       // drawer: ,
       // floatingActionButton: ,

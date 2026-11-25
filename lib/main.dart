@@ -1,5 +1,6 @@
 import 'package:ai39a/profile_screen.dart';
 import 'package:ai39a/view/authentication/login_screen.dart';
+import 'package:ai39a/view/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white
         )
       ),
-      home: LoginScreen(),
+      home: DashboardScreen(),
 
     );
   }
